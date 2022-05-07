@@ -14,6 +14,7 @@ import { Wrapper, StyledButton } from "./assets/styles/App.styles";
 import { getProductsRequest } from "./api/products";
 // types
 import { CartItemType } from "./helpers/types/App";
+import Cart from "./components/Cart/Cart";
 
 
 const App = () => {
@@ -45,7 +46,7 @@ const App = () => {
 
   const handleAddToCart = (clickedItem: CartItemType) => null ;
 
-  const handleRemoveFromCard = () => null;
+  const handleRemoveFromCart = () => null;
 
   if(isLoading) return <LinearProgress/>;
   if(error) return <div>Something went wrong ...</div>
@@ -54,7 +55,11 @@ const App = () => {
   return (
     <Wrapper>
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
-        Cart goes here
+        <Cart 
+          cartItems={cartItems}
+          addToCart={handleAddToCart}
+          removeFromCart={handleRemoveFromCart}
+        />
       </Drawer>
       <StyledButton onClick={() => setCartOpen(true)} >
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
