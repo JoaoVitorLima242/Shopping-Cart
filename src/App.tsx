@@ -9,6 +9,8 @@ import {
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
 import { Wrapper, StyledButton } from "./assets/styles/App.styles";
+import { getProducts } from "./api/products";
+
 
 const App = () => {
   return (
