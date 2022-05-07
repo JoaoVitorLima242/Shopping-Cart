@@ -1,11 +1,11 @@
-import { CardItemType } from "../helpers/types/App";
+import { CartItemType } from "../helpers/types/App";
 
-export const getProducts = async () => {
+export const getProductsRequest = async (): Promise<CartItemType[]> => {
     try {
-        let products: CardItemType[] = await (await fetch('https://fakestoreapi.com/products')).json()
-
+        let products: CartItemType[] = await (await fetch('https://fakestoreapi.com/products')).json()
         return products;
     } catch (err){
         console.log(err)
+        throw(err)
     }
 };
