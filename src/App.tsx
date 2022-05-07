@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 // Components
+import Item from "./components/Items/Item";
 import { 
   Drawer,
   LinearProgress,
@@ -31,14 +32,13 @@ const App = () => {
       setIsLoading(false)
       setError(true);
     } finally {
-      console.log("ok")
       setIsLoading(false)
     }
   }
 
   const getTotalItems = () => null;
 
-  const handleAddToCart =() => null;
+  const handleAddToCart = (clickedItem: CartItemType) => null ;
 
   const handleRemoveFromCard = () => null;
 
@@ -49,6 +49,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Hello World!</h1>
+      <Item/>
     </div>
   );
 }
