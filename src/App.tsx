@@ -28,6 +28,12 @@ const App = () => {
     setData(products);
   }
 
+  const getTotalItems = () => null;
+
+  const handleAddToCart =() => null;
+
+  const handleRemoveFromCard = () => null;
+
   return (
     <div className="App">
       <h1>Hello World!</h1>
