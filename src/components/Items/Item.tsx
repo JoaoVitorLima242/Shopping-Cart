@@ -2,7 +2,7 @@ import Button from '@material-ui/core/Button';
 // Types
 import { CartItemType } from '../../helpers/types/App'; 
 // Styles
-import { Wrapper } from '../../assets/styles/App.styles'
+import { Wrapper } from './Item.styles'
 
 type Props = {
     item: CartItemType;
@@ -10,15 +10,17 @@ type Props = {
 }
 
 const Item  = ({item, handleAddToCart}: Props) => {
-    <Wrapper>
-        <img src={item.image} alt={item.title} />
-        <div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <h3>${item.price}</h3>
-        </div>
-        <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
-    </Wrapper>
+    return (
+        <Wrapper>
+            <img src={item.image} alt={item.title} />
+            <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <h3>${item.price}</h3>
+            </div>
+            <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+        </Wrapper>
+    )
 }
 
 export default Item;
