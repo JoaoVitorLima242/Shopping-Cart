@@ -8,6 +8,7 @@ import {
   Badge
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
+import { Wrapper, StyledButton } from "./assets/styles/App.styles";
 
 const App = () => {
   return (
