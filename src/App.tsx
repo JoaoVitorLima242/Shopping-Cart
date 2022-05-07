@@ -16,7 +16,7 @@ import { CartItemType } from "./helpers/types/App";
 const App = () => {
 
   const [data, setData] = useState([{}]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -24,8 +24,16 @@ const App = () => {
   },[])
 
   const getProducts = async () => {
-    let products = await getProductsRequest();
-    setData(products);
+    try {
+      let products = await getProductsRequest();
+      setData(products);
+    } catch(err) {
+      setIsLoading(false)
+      setError(true);
+    } finally {
+      console.log("ok")
+      setIsLoading(false)
+    }
   }
 
   const getTotalItems = () => null;
@@ -33,6 +41,10 @@ const App = () => {
   const handleAddToCart =() => null;
 
   const handleRemoveFromCard = () => null;
+
+  if(isLoading) return <LinearProgress/>;
+  if(error) return <div>Something went wrong ...</div>
+
 
   return (
     <div className="App">
