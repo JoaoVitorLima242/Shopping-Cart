@@ -10,7 +10,9 @@ import {
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
 import { Wrapper, StyledButton } from "./assets/styles/App.styles";
+// Api Funcs
 import { getProductsRequest } from "./api/products";
+// types
 import { CartItemType } from "./helpers/types/App";
 
 
@@ -38,7 +40,8 @@ const App = () => {
     }
   }
 
-  const getTotalItems = (items: CartItemType[]) => null;
+  const getTotalItems = (items: CartItemType[]) => 
+  items.reduce((ack: number, item) => ack + item.amount, 0);
 
   const handleAddToCart = (clickedItem: CartItemType) => null ;
 
