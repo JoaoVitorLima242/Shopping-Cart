@@ -21,7 +21,7 @@ const Cart = ({cartItems, addToCart, removeFromCart} : Props)  => {
                     addToCart={addToCart}
                     removeFromCart={removeFromCart}
                 />
-            ))};
+            ))}
         </Wrapper>
     )
 }
