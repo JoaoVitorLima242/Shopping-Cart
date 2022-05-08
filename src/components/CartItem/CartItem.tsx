@@ -25,6 +25,7 @@ const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => (
                 >
                     -
                 </Button>
+                {item.amount}
                 <Button 
                     size="small"
                     disableElevation
