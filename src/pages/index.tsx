@@ -15,31 +15,20 @@ import { getProductsRequest } from "../api/products";
 // types
 import { CartItemType } from "../helpers/types/App";
 import Cart from "../components/Cart/Cart";
+import { GetServerSideProps } from "next";
 
 
-const Home = () => {
+type HomeProps = {
+  products: CartItemType[]
+}
+
+const Home = ({products} : HomeProps) => {
+
 
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as CartItemType[])
-  const [data, setData] = useState<CartItemType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    getProducts()
-  },[])
-
-  const getProducts = async () => {
-    try {
-      let products = await getProductsRequest();
-      setData(products);
-    } catch(err) {
-      setIsLoading(false)
-      setError(true);
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   const getTotalItems = (items: CartItemType[]) => 
   items.reduce((ack: number, item) => ack + item.amount, 0);
@@ -92,7 +81,7 @@ const Home = () => {
         </Badge>
       </StyledButton>
       <Grid container spacing={3}>
-        {data?.map(item => (
+        {products?.map(item => (
           <Grid item key={item.id} xs={12} sm={4}>
             <Item item={item} handleAddToCart={handleAddToCart} />
           </Grid>
@@ -100,6 +89,16 @@ const Home = () => {
       </Grid>
     </Wrapper>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const products = await getProductsRequest();
+
+  return {
+    props: {
+      products
+    }
+  }
 }
 
 export default Home;
