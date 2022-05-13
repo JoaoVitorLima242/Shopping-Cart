@@ -27,8 +27,6 @@ const Home = ({products} : HomeProps) => {
 
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as CartItemType[])
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
 
   const getTotalItems = (items: CartItemType[]) => 
   items.reduce((ack: number, item) => ack + item.amount, 0);
@@ -62,8 +60,6 @@ const Home = ({products} : HomeProps) => {
     ))
   };
 
-  if(isLoading) return <LinearProgress/>;
-  if(error) return <div>Something went wrong ...</div>
 
 
   return (
