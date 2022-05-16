@@ -90,6 +90,7 @@ const Home = ({products} : HomeProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const products = await getProductsRequest();
 
+  
   return {
     props: {
       products
