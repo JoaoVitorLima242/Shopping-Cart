@@ -1,3 +1,3 @@
 # Shopping Cart :shopping_cart:
  
- Application using Typescript and React.js to make a shopping cart.
+A simple shopping card using **ReactJS, NextJS, TypeScript and Styled-Components**.
