@@ -37,7 +37,11 @@ import Document, {
     render() {
       return (
         <Html>
-          <Head />
+          <Head>
+            <title>Shopping Cart | Ts and NextJS</title>
+            <link type="image/png" sizes="16x16" rel="icon" href="img/shopping-cart-16.png"/>
+            <link type="image/png" sizes="32x32" rel="icon" href="img/shopping-cart-32.png"/>
+          </Head>
           <body>
             <Main />
             <NextScript />
